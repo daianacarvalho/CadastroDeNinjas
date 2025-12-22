@@ -1,6 +1,9 @@
-package dev.codewithdaiana.CadastroDeNinjas;
+package dev.codewithdaiana.CadastroDeNinjas.Ninjas;
 
+import dev.codewithdaiana.CadastroDeNinjas.Missoes.MissoesModel;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "tb_cadastro")
@@ -12,6 +15,12 @@ public class NinjaModel {
     private String nome;
     private String email;
     private int idade;
+
+    // @ManyToOne - Um ninja tem uma única missão
+    @ManyToOne
+    @JoinColumn(name = "missoes_id") // Foreing Key
+    private MissoesModel missoes;
+
 
     public NinjaModel() {
     }
